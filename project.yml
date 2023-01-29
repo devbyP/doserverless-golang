@@ -10,15 +10,8 @@ packages:
     annotations: {}
     functions:
       - name: hello
-        binary: false
         main: ""
         runtime: go:default
-        web: true
-        websecure: false
-        parameters: {}
-        environment: {}
-        annotations: {}
-        limits: {}
 
       - name: dbTest
         main: ""
