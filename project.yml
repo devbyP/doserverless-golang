@@ -16,6 +16,8 @@ packages:
       - name: dbTest
         main: ""
         runtime: go:default
+        limits:
+          timeout: 30000
 
       - name: reqContext
         main: ""

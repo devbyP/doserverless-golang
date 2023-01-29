@@ -18,24 +18,24 @@ func connectDatabase(ctx context.Context, url string) (*pgx.Conn, error) {
 }
 
 type name struct {
-	id   int
-	name string
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
-func getNames(ctx context.Context, db *pgx.Conn) ([]*name, error) {
-    sql := "SELECT id, name FROM names;"
-    rows, err := db.Query(ctx, sql)
-    if err != nil {
-        return nil, err
-    }
-    defer rows.Close()
-    names := make([]*name, 0)
-    for rows.Next() {
-        n := &name{}
-        if err := rows.Scan(&n.id, &n.name); err != nil {
-            return nil, err
-        }
-        names = append(names, n)
-    }
-    return names, nil
+func getNames(ctx context.Context, db *pgx.Conn) ([]name, error) {
+	sql := "SELECT id, name FROM names;"
+	rows, err := db.Query(ctx, sql)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	names := make([]name, 0)
+	for rows.Next() {
+		n := name{}
+		if err := rows.Scan(&n.ID, &n.Name); err != nil {
+			return nil, err
+		}
+		names = append(names, n)
+	}
+	return names, nil
 }
