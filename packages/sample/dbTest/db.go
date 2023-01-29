@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v4"
 )
 
 func connectDatabase(ctx context.Context, url string) (*pgx.Conn, error) {
