@@ -19,3 +19,11 @@ packages:
         environment: {}
         annotations: {}
         limits: {}
+
+      - name: dbTest
+        main: ""
+        runtime: go:default
+
+      - name: reqContext
+        main: ""
+        runtime: go:default
