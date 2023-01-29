@@ -12,5 +12,10 @@ type Response struct {
 
 func Main(r map[string]string) (*Response, error) {
     fmt.Println(r["__ow_method"])
-    return &Response{Body: "hello, World"}, nil
+    headers := make(map[string]string)
+    headers["Content-type"] = "application/json"
+    return &Response{
+        Headers: headers,
+        Body: "hello, World",
+    }, nil
 }
